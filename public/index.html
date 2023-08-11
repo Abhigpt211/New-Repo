@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Playlist App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Movie Playlist App</h1>
+        </header>
+        <div class="container">
+            <div id="playlistContainer"></div>
+            <div id="playlistDialog" class="dialog">
+                <h2>Choose Playlist Type and Name</h2>
+                <select id="playlistType">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+                <input type="text" id="playlistName" placeholder="Enter playlist name">
+                <button id="confirmPlaylist">Confirm</button>
+            </div>
+         
+            <!-- Search Movies -->
+            <div class="search-container">
+                <input type="text" id="movieTitle" placeholder="Enter a movie title">
+                <button id="searchButton">Search</button>
+            </div>
+        </div>
+            <div id="searchResults"></div>
+
+            <!-- User Account -->
+            <div class="user-account">
+                <h2>Create an Account</h2>
+                <form id="registrationForm" action="/api/register" method="POST">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <button id="registerButton">Register</button>
+                </form>
+            <br>
+
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginButton">Login</button>
+
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

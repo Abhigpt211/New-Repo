@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}  
+
+h1{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#movieTitle{
+   padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 60%
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white; 
+    padding: 10px;
+}
+
+button{
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+ 
+  button:hover {
+    background-color: #0056b3;
+}
+
+#searchResults{  
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+#playlistDialog{
+    display: none;
+}
+
+.movie-item{
+    margin: 20px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.movie-item img{
+    height: auto;
+    width: 200px;
+}
+
+#username{
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
+
+#password{
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
+
+#loginUsername{
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
+
+#loginPassword{
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
