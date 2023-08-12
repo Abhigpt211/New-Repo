@@ -142,13 +142,15 @@ function isUserLoggedIn() {
     
             if (response.ok) {
                 const data = await response.json();
+                const registrationMessage = document.getElementById('registrationMessage');
+                registrationMessage.textContent = data.message;
                 console.log(data.message); // Registration success message
             } else {
                 const errorData = await response.json();
                 console.error('Registration error:', errorData.message);
             }
         } catch (error) {
-            console.error('An error occurred during registration:', error);
+            console.error('An error occurred during registration:', error.me);
         }
     }
 
@@ -158,7 +160,7 @@ function isUserLoggedIn() {
     });
 
 
-    function loginUser() {
+  async  function loginUser() {
         const username = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
     
@@ -169,28 +171,26 @@ function isUserLoggedIn() {
         };
     
         // Make an API request to log in the user
-        fetch('https://your-backend-server/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Login successful, store the user's authentication token or session
-                // You might redirect the user or update UI to reflect their logged-in status
-                alert('Login successful!');
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data.message); // Login success message
             } else {
-                // Login failed, provide error message to the user
-                alert('Login failed. Please check your credentials and try again.');
+                const errorData = await response.json();
+                console.error('Login error:', errorData.message);
             }
-        })
-        .catch(error => {
-            console.error('Error logging in user:', error);
-            alert('An error occurred. Please try again later.');
-        });
+        } catch (error) {
+            console.log(error)
+            console.error('An error occurred during login:', error);
+        }
     }
     
     function displayPlaylist() {
